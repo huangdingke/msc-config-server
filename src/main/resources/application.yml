@@ -1,3 +1,29 @@
+server:
+  port: 9301  #服务端口号
+
+spring:
+  profiles:
+    active: dev
+  cloud:
+    config:
+      enabled: true
+      server:
+        git:
+          uri: ${spring.configurl}
+          search-paths: '{application}/{profile}'
+            username: huangdingke
+            password: Qq11234566
+            clone-on-start: true
+  rabbitmq:
+    host: 192.168.2.22
+    port: 5672
+    username: guest
+    password: guest
+    requested-heartbeat: 60s
+    listener:
+      direct:
+        acknowledge-mode: none
+
 eureka:
   client:
     serviceUrl:
@@ -6,22 +32,7 @@ eureka:
     instance-id: ${spring.application.name}:${server.port}
     prefer-ip-address: true
 
-server:
-  port: 9301  #服务端口号
-spring:
-  application:
-    name: config-server #服务名称--调用的时候根据名称来调用该服务的方法
-  eurekaurl: http://127.0.0.1:9101/eureka/
-  cloud:
-    config:
-      enabled: true
-      server:
-        git:
-          uri: ${spring.configurl}
-          search-paths: '{application}/{profile}'
-          username: huangdingke
-          password: Qq11234566
-          clone-on-start: true
+
 ---
 spring:
   profiles: dev
