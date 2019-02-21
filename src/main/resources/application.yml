@@ -11,9 +11,9 @@ spring:
         git:
           uri: ${spring.configurl}
           search-paths: '{application}/{profile}'
-            username: huangdingke
-            password: Qq11234566
-            clone-on-start: true
+          username: huangdingke
+          password: Qq11234566
+          clone-on-start: true
   rabbitmq:
     host: 192.168.2.22
     port: 5672
@@ -23,6 +23,8 @@ spring:
     listener:
       direct:
         acknowledge-mode: none
+
+    configurl: https://github.com/huangdingke/msc-config-client.git
 
 eureka:
   client:
