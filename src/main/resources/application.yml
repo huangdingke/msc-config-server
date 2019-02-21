@@ -19,6 +19,15 @@ spring:
         git:
           uri: ${spring.configurl}
           search-paths: '{application}/{profile}'
-          username: abc
-          password: 123
+          username: huangdingke
+          password: Qq11234566
           clone-on-start: true
+---
+spring:
+  profiles: dev
+  configurl: https://github.com/huangdingke/msc-config-client.git
+---
+spring:
+  profiles: test
+  configurl: https://github.com/huangdingke/msc-config-client.git
+---
