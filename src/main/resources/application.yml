@@ -1,0 +1,24 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${spring.eurekaurl}
+  instance:
+    instance-id: ${spring.application.name}:${server.port}
+    prefer-ip-address: true
+
+server:
+  port: 9301  #服务端口号
+spring:
+  application:
+    name: config-server #服务名称--调用的时候根据名称来调用该服务的方法
+  eurekaurl: http://127.0.0.1:9101/eureka/
+  cloud:
+    config:
+      enabled: true
+      server:
+        git:
+          uri: ${spring.configurl}
+          search-paths: '{application}/{profile}'
+          username: abc
+          password: 123
+          clone-on-start: true
